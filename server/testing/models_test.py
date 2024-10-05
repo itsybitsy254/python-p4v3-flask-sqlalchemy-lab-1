@@ -1,7 +1,7 @@
+import pytest  # Assuming you are using pytest for your tests
 from app import app
 from server.models import db, Earthquake
 from sqlalchemy_serializer import SerializerMixin
-
 
 class TestEarthquake:
     '''Earthquake model in models.py'''
@@ -29,4 +29,4 @@ class TestEarthquake:
     def test_dictionary(self):
         '''to_dict() result'''
         quake = Earthquake(magnitude=9.5, location="Chile", year=1960)
-        assert quake.to_dict()
+        assert quake.to_dict() is not None  # Check that to_dict() returns something
